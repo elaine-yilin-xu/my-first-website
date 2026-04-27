@@ -33,6 +33,11 @@ body {
     z-index: 10;
 }
 
+.logo {
+    position:absolute;
+    left: 48px;
+}
+
 .logo a {
     color:#FFFDF0;
     text-decoration: none;
@@ -60,6 +65,52 @@ body {
     font-weight: 300;
 }
 
+.nav-links a:hover{
+    opacity: 0.6;
+}
+
+.nav-icons {
+
+    position: absolute;
+    right: 72px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-icon {
+    width: 20px;
+    cursor: pointer;
+}
+
+.nav-icon:hover {
+    opacity: 0.6;
+}
+
+.cart-icon {
+    width:28px;
+    height: auto;
+    cursor: pointer;
+}
+
+.cart-icon:hover{
+    opacity:0.6;
+}
+
+.profile-icon {
+    width:25px;
+    filter: invert(1);
+    height: auto;
+    cursor: pointer;
+}
+
+profile-icon:hover{
+    opacity: 0.6;
+}
+
 .hero-content {
     height: calc(100% - 85px);
     display: flex;
@@ -80,3 +131,4 @@ body {
     background-color: #FFFDF0;
     color: #2F3C16;
 }
+
