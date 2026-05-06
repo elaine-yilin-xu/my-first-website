@@ -26,16 +26,26 @@
 
 <body>
     <!-- HEADER GOBAL -->
-    <header class = "site-header"></header>
+    <header class = "site-header">
         <nav class="navbar">
-            <div class="logo">uspa.</div>
+            <h1 class="logo">
+                <a href="index.html">uspa.</a>
+            </h1>
 
             <ul class="nav-links">
                 <li><a href="shop-all.html">Shop All</a></li>
                 <li><a href="skincare.html">Skincare</a></li>
                 <li><a href="body.html">Body</a></li>
             </ul>
+
+            <ul class="nav-icons">
+                <li><img src="images/menu.png" alt="Menu" class="nav-icon"></li>
+                <li></li><img src="images/cart.png" alt="Cart" class="cart-icon"></li> 
+                <li></li><img src="images/profile.png" alt="Profile" class="profile-icon"></li>
+            </ul>
         </nav>
+    </header>
+        
     </header>
 
 
@@ -45,7 +55,99 @@
             <p>a conscious choice. an everyday ritual. and a shared celebration of u.</p>
         </section>
 
-        <section class="shop-layout">
+
+
+        <section class="shop-layout" aria-label="Shop all proucts">
+            <aside class ="filters" aria-label="Product filters">
+
+                <h2>Filter by</h2>
+
+                <details> 
+                    <summary>Price</summary>
+                </details>
+
+                <details> 
+                    <summary>Skin type</summary>
+                </details>
+
+                <details> 
+                    <summary>Skin concern</summary>
+                </details>
+
+                <details> 
+                    <summary>Form</summary>
+                </details>
+
+                <details> 
+                    <summary>Ingredients</summary>
+                </details>
+
+                <button type="button" class="apply-btn">Apply</button>
+                <button type="reset" class="apply-btn">Reset</button>
+            </aside>
+            <section class="products" aria-labels="Product list">
+
+                <article class="product-card">
+                    <img src="images/product1.jpg" alt="Revital Eyes Firming Gel">
+                    <h3>Revital Eyes Firming Gel</h3>
+                    <p>A$90.00</p>
+                    <button type="button">ADD TO CART</button>
+                </article>
+
+                <article class="product-card">
+                    <img src="images/product2.jpg" alt="Age Defying Hand Cream">
+                    <h3>Age Defying Hand Cream</h3>
+                    <p>A$45.00</p>
+                    <button type="button">ADD TO CART</button>
+                </article>
+
+                <article class="product-card">
+                    <img src="images/product3.jpg" alt="Desensitising Elixir">
+                    <h3>Desensitising Elixir</h3>
+                    <p>A$60.00</p>
+                    <button type="button">ADD TO CART</button>
+                </article>
+
+                <article class="product-card">
+                    <img src="images/product4.jpg" alt="Eye Contour Elixir">
+                    <h3>Eye Contour Elixir</h3>
+                    <p>A$60.00</p>
+                    <button type="button">ADD TO CART</button>
+                </article>
+
+                <article class="product-card">
+                    <img src="images/product5.jpg" alt="Hydrating Mud Mask">
+                    <h3>Hydrating Mud Mask</h3>
+                    <p>A$75.00</p>
+                    <button type="button">ADD TO CART</button>
+                </article>
+
+                <article class="product-card">
+                    <img src="images/product6.jpg" alt="Hydrating Conditioner">
+                    <h3>Hydrating Conditioner</h3>
+                    <p>A$35.00</p>
+                    <button type="button">ADD TO CART</button>
+                </article>
+
+                <article class="product-card">
+                    <img src="images/product7.jpg" alt="Age Defying Elixir">
+                    <h3>Age Defying Elixir</h3>
+                    <p>A$75.00</p>
+                    <button type="button">ADD TO CART</button>
+                </article>
+
+                <article class="product-card">
+                    <img src="images/product8.jpg" alt="Nourishing Dry Body Oil">
+                    <h3>Nourishing Dry Body Oil</h3>
+                    <p>A$40.00</p>
+                    <button type="button">ADD TO CART</button>
+                </article>
+
+
+
+            </section>
+
+        </section>
             <!-- filters + products -->
 
 
@@ -80,6 +182,7 @@
                 <a href="#">Privacy policy</a>
                 <a href="#">Cookie policy</a>
             </section>
+
 
             <section class="footer-column newsletter">
                 <h3>Subscribe to the uspa community</h3>
