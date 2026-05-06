@@ -286,3 +286,91 @@ button:hover {
 .newsletter {
     max-width: 360px;
 }
+
+/* SHOP ALL */ 
+
+.shop-layout {
+    display:grid;
+    grid-template-columns: 220px 1fr;
+    gap: 40px;
+    padding: 80px 50px;
+}
+
+.filters h2{
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.filters details{
+    border-top: 1px solid #2F3C16;
+    padding: 8px 0;
+}
+
+.filters summary {
+    font-size: 14px;
+    font-weight: 400;
+    list-style: none;
+    cursor: pointer;
+}
+
+.filters summary::-webkit-details-marker {
+    display: none;
+}
+
+.filters summary::after {
+    content:"⌄";
+    float: right;
+}
+
+.filters {
+    width: 220px;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(160px, 1fr));
+    gap: 48px 32px;
+}
+
+.product-card img {
+    width:100%;
+    border-radius: 16px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    display: block;
+}
+
+.product-card h3 {
+    font-size: 16px;
+    margin-top: 16px;
+    margin-bottom: 4px;
+}
+
+.product-card p {
+    font-size: 13px;
+    margin:0 0 8px 0;
+}
+
+.product-card button {
+    background-color: #263713;
+    color: white;
+    border: none;
+    padding: 6px 14px;
+    font-size: 11px;
+    padding: 6px 14px;
+}
+
+@media (max-width:768px) {
+    .shop-layout {
+        display: block;
+    }
+
+    .filters {
+        display:none;
+    }
+
+    .products {
+        grid-template-columns: repeat(2, 1fr)
+    }
+}
