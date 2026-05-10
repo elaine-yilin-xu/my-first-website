@@ -299,8 +299,45 @@ button:hover {
     align-items: center;
     justify-content: center;
     color: #FFFDF0;
-    font-size: font-size: clamp(18px, 2.5vw, 28px);
+    font-size: clamp(18px, 2.5vw, 28px);
     text-align: center;
+}
+
+
+.filters details {
+    border-top: 1px solid #2F3C16;
+    padding: 1 rem 0;
+}
+
+.filters details:last-of-type {
+    border-bottom: 1px solid #2F3C16
+}
+
+.filters summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    cursor: pointer;
+}
+
+.filters summary::-webkit-details-marker {
+    display:none;
+}
+
+.filters summary::after {
+    content: "⌄"; 
+}
+
+.filters details[open] summary::after {
+    content: "⌃";
+}
+
+.filters label {
+    display: block;
+    margin-top: 0.7rem;
+    font-size: 0.9rem;
+    color:#2F3C16
 }
 
 .shop-layout {
