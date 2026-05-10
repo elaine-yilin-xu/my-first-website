@@ -63,7 +63,7 @@ body {
 .nav-links a {
     color: #FFFDF0;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 1rem;
     text-transform: lowercase;
     font-weight: 300;
 }
@@ -162,7 +162,7 @@ main {
 }
 
 .text-block h2 {
-    font-size: 48px;
+    font-size: clamp(28px, 4vw, 48px);
     font-weight: 400;
     letter-spacing: -1px;
     margin-bottom: 70px;
@@ -171,7 +171,7 @@ main {
 
 .text-block p {
     max-width: 460px;
-    font-size: 22px;
+    font-size: clamp(16px, 2vw, 22px);
     line-height: 1.15;
     font-weight: 300;
     color: #2F3C16;
@@ -299,7 +299,7 @@ button:hover {
     align-items: center;
     justify-content: center;
     color: #FFFDF0;
-    font-size: 28px;
+    font-size: font-size: clamp(18px, 2.5vw, 28px);
     text-align: center;
 }
 
@@ -362,8 +362,13 @@ button:hover {
 
 .products {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
     gap: 48px 32px;
+}
+
+.product-card {
+    display: grid;
+    grid-template-rows: auto 4.5rem auto auto;
 }
 
 .product-card img {
@@ -375,20 +380,44 @@ button:hover {
 }
 
 .product-card h3 {
-    font-size: 16px;
+    font-size: 0.95rem;
     margin-top: 16px;
+    min-height: 4rem;
+    line-height: 1.2;
+    margin-bottom: 0.6rem;
 }
 
 .product-card p {
-    font-size: 13px;
+    width: 100%;
+    padding: 12px 0;
+    font-size: 0.85rem;
+    font-weight: 500;
 }
+
+
 
 .product-card button {
     background-color: #263713;
     color: white;
     border: none;
     padding: 6px 14px;
-    font-size: 11px
+    font-size: 11px;
+    align-self: start;
+}
+
+.mobile-filter-btn {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .mobile-filter-btn {
+        display: block;
+        margin-bottom: 2rem;
+        background: none;
+        color: #2F3C16;
+        padding: 0;
+        font-size: 1rem;
+    }
 }
 
 @media (max-width:768px) {
