@@ -408,6 +408,11 @@ button:hover {
     grid-template-rows: auto 4.5rem auto auto;
 }
 
+.product-card a{
+    text-decoration:none;
+    color:inherit;
+}
+
 .product-card img {
     width:100%;
     aspect-ratio: 1/1;
