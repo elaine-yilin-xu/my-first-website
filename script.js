@@ -107,7 +107,7 @@ function renderProducts(productList) {
                     <div class="product-title-row">
                         <h3>${product.name}</h3>
                         <img 
-                            src="images/heart.png"
+                            src="images/heart.svg"
                             alt="Wishlist"
                             class="heart-icon"
                         >
@@ -161,5 +161,16 @@ if (resetBtn && productsContainer) {
             checkbox.checked = false;
         });
         renderProducts(products);
+    });
+}
+
+
+// search drop down
+const searchIcon = document.querySelector(".search-icon");
+const searchDropdown = document.querySelector(".search-dropdown");
+
+if(searchIcon&&searchDropdown) {
+    searchIcon.addEventListener("click", () => {
+        searchDropdown.classList.toggle("active");
     });
 }

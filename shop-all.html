@@ -26,9 +26,19 @@
             </ul>
 
             <ul class="nav-icons">
-                <li><img src="images/menu.png" alt="Menu" class="nav-icon"></li>
-                <li><img src="images/cart.png" alt="Cart" class="cart-icon"></li> 
-                <li><img src="images/profile.png" alt="Profile" class="profile-icon"></li>
+                <li><img src="images/menu.svg" alt="Menu" class="nav-icon"></li>
+                <li class="search-wrapper">
+                    <img src="images/search.svg" alt="Search" class="search-icon">
+                    <div class="search-dropdown">
+                        <input
+                            type="text"
+                            id="search-input"
+                            placeholder="I'm searching for..."
+                        >
+                    </div>
+                </li>
+                <li><img src="images/cart.svg" alt="Cart" class="cart-icon"></li> 
+                <li><img src="images/profile.svg" alt="Profile" class="profile-icon"></li>
             </ul>
         </nav>
     </header>
@@ -110,7 +120,7 @@
                 </details>
 
                 <button type="button" class="apply-btn">Apply</button>
-                <button type="button" class="apply-btn">Reset</button>
+                <button type="button" class="reset-btn">Reset</button>
             </aside>
             <button type="button" class="mobile-filter-btn">Filter</button>
 
