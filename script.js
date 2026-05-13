@@ -174,3 +174,16 @@ if(searchIcon&&searchDropdown) {
         searchDropdown.classList.toggle("active");
     });
 }
+
+const searchInput = document.getElementById("search-input");
+
+if (searchInput) {
+    searchInput.addEventListener("keydown", event => {
+        if(event.key === "Enter") {
+            const searchTerm = searchInput.value.trim().toLowerCase();
+            if (searchTerm === "age defying elixir") {
+                window.location.href = "age-defying-elixir.html";
+            }
+        }
+    });
+}

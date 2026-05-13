@@ -618,7 +618,7 @@ button:hover {
 .product-page {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    gap: clamp(3rem, 6vw, 6rem);
 
     max-width: 75rem;
     margin: 5rem auto;
@@ -771,17 +771,19 @@ button:hover {
 
 /* PRODUCT DETAILS */
 
+.product-page,
+.product-details {
+    max-width: 75rem;
+    margin: 0 auto;
+    padding: 0 3rem;
+}
+
 .product-details {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-
-    gap: 4rem;
-
-    max-width: 75rem;
-
-    margin: 4rem auto 8rem auto;
-
-    padding: 0 3rem;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(3rem, 6vw, 6rem);
+    padding-top: 2rem;
+    padding-bottom: 6rem;
 }
 
 .detail-block {
@@ -797,6 +799,40 @@ button:hover {
 .detail-block p,
 .detail-block li {
     line-height: 1.7;
+}
+
+.details-left {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+.ingredients-block {
+    max-width: 28rem;
+    align-self: start;
+}
+
+.breadcrumb {
+    max-width: 75rem;
+    margin: 1rem auto 2rem auto;
+    padding: 0 3rem;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    opacity: 0.7;
+}
+
+.breadcrumb a {
+    color: #2F3C16;
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumb span {
+    margin: 0 0.3rem;
 }
 
 /* =========================
