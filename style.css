@@ -195,34 +195,38 @@ main {
 
 /* FOOTER */
 footer {
-    background-color: #2F3C16;
-    color: #FFFDF0;
-    padding: 80px 60px 40px;
+    background-color: #182205;
+    color: #fcfaf0;
+    padding: 5rem 4rem 2rem;
 }
 
 .footer-heading {
-    font-size: 34px;
-    line-height: 1.25;
+    font-size: clamp(1.5rem, 2.8vw, 3.0rem);
+    line-height: 1;
+    max-width: 90rem;
+    margin-bottom: 4rem;
 }
+
 .footer-column {
     flex: 1;
-    max-width: 220px;
+    flex-direction: column;
+    gap: 0.9rem;
 }
 
 .footer-columns {
-    display: flex;
-    justify-content: space-between;
-    gap: 120px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.4fr;
+    gap: 4rem;
+    align-items: start;
 }
 
 .footer-column h3 {
-    font-size: 18px;
-    font-weight: 500;
-    margin-bottom: 20px;
+    font-size: 1rem;
+    font-weight: 1.1rem;
 }
 
 .footer-column a {
-    display: block;   /* THIS fixes your issue */
+    display: block;  
     color: #FFFDF0;
     text-decoration: none;
     font-size: 13px;
@@ -236,8 +240,8 @@ footer {
 
 /* subscription text */
 .subscribe-text {
-    font-size: 14px;
-    margin-bottom: 20px;
+    line-height: 1.5;
+    margin-bottom: 2rem;
     opacity: 0.6;
 }
 
@@ -285,7 +289,7 @@ button:hover {
 }
 
 .newsletter {
-    max-width: 360px;
+    max-width: 26rem;
 }
 
 /* SHOP ALL */ 
@@ -342,9 +346,11 @@ button:hover {
 
 .shop-layout {
     display:grid;
-    grid-template-columns: 220px 1fr;
-    gap: 40px;
-    padding: 80px 50px;
+    grid-template-columns: 16rem minmax(0, 1fr);
+    gap: 4rem;
+    width: min(90%, 75rem);
+    margin: 0 auto;
+    padding: 4rem 0;
 }
 
 .site-header {
@@ -399,13 +405,14 @@ button:hover {
 
 .products {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(clamp(8rem, 18vw, 16rem), 1fr));
+    grid-template-columns: repeat(3, minmax(0, 20rem));
     gap: 3rem 2rem;
     justify-content: start;
 }
 
 .product-card {
-    max-width: 16rem;
+    width: 100%;
+    max-width: none;
 }
 
 
@@ -416,26 +423,24 @@ button:hover {
     color: inherit;
 }
 
-.product-card h3 {
-    min-height: 4rem;
-}
+
 
 .product-bottom {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 1rem
 }
-.product-bottom {
-    margin: 0;
-    font-size: 0.9rem;
-    font-weight: 500;
-}
+
+
 
 .product-bottom button {
     width: auto;
     padding: 0.7rem 1.8rem;
     white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
 }
 
 
@@ -449,23 +454,24 @@ button:hover {
     aspect-ratio: 1/1;
     object-fit: cover;
     display: block;
-    border-radius: 10px;
+    border-radius: 0;
+}
+
+.product-card .heart-icon {
+    width: 1.5rem;
+    height: auto;
+    object-fit: contain;
+    flex-shrink: 0;
 }
 
 .product-card h3 {
     font-size: 0.95rem;
-    margin-top: 16px;
-    min-height: 4rem;
+    min-height: 2.5rem;
     line-height: 1.2;
-    margin-bottom: 0.6rem;
+    margin-bottom: 0.05rem;
 }
 
-.product-card p {
-    width: 100%;
-    padding: 12px 0;
-    font-size: 0.85rem;
-    font-weight: 500;
-}
+
 
 
 
@@ -580,7 +586,7 @@ button:hover {
 
 .product-image {
     width: 100%;
-    border-radius: 1rem;
+    border-radius: 0;
     display: block;
 }
 
@@ -588,6 +594,76 @@ button:hover {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+}
+
+.product-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    flex: 1;
+}
+
+
+
+.product-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    width: 100%
+}
+
+.product-title-row {
+    margin-top: 0.8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.product-title-row h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    line-height: 1.2;
+}
+.heart-icon {
+    width: 0.3rem;
+    height: 0.3rem;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.product-skin {
+    margin-top: -1.15rem;
+    font-size: 0.8rem;
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.2;
+    opacity: 0.75;
+}
+
+.product-description {
+    font-size: 0.84rem;
+    margin-top: 1.5rem;
+    min-height: 3.5rem;
+    line-height: 1;
+}
+
+.product-volume {
+    top: -0.4rem;
+    position: relative;
+    font-size: 1rem;
+    font-weight: 500;
+
+}
+
+.product-price-card {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1;
+    position: relative;
+    top: -0.08rem;
 }
 
 .product-title {
@@ -704,7 +780,7 @@ button:hover {
     }
 
     .product-title {
-        font-size: 2.2rem;
+        font-size: 3.2rem;
     }
 
 }
