@@ -473,12 +473,13 @@ button:hover {
 
 
 .product-bottom button {
-    padding: 0.55rem 1.2rem;
+    min-height: 2rem;
+    padding: 1rem 2rem;
+    border-radius: 0.15rem;
     font-size: 0.68rem;
     letter-spacing: 0.06rem;
     font-weight: 500;
     width: auto;
-    padding: 0.7rem 1.8rem;
     white-space: nowrap;
     display: flex;
     align-items: center;
@@ -497,7 +498,7 @@ button:hover {
     aspect-ratio: 1/1;
     object-fit: cover;
     display: block;
-    border-radius: 0;
+    border-radius: 0.3rem;
 }
 
 .product-card .heart-icon {
@@ -629,7 +630,7 @@ button:hover {
 
 .product-image {
     width: 100%;
-    border-radius: 0;
+    border-radius: 0.4rem;
     display: block;
 }
 
@@ -677,33 +678,35 @@ button:hover {
 }
 
 .product-skin {
-    margin-top: -1.15rem;
-    font-size: 0.8rem;
+    margin-top: -0.9rem;
+    font-size: 0.9rem;
     font-weight: 400;
     font-style: italic;
     line-height: 1.2;
-    opacity: 0.75;
+    opacity: 0.85;
 }
 
 .product-description {
-    font-size: 0.84rem;
-    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    font-weight: 300;
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
     min-height: 3.5rem;
     line-height: 1.15;
     max-width: 90%;
 }
 
 .product-volume {
-    top: -0.4rem;
+    top: -0.25rem;
     position: relative;
-    font-size: 1rem;
-    font-weight: 500;
-
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-bottom: 0.75rem;
 }
 
 .product-price-card {
     font-size: 1.5rem;
-    font-weight: 700;
+    font-weight: 400;
     margin: 0;
     line-height: 1;
     position: relative;
@@ -712,54 +715,74 @@ button:hover {
 
 .product-title {
     font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 600;
     line-height: 1.1;
 }
 
 .product-subtitle {
-    font-size: 1.1rem;
+    margin-top: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 350;
 }
 
 .product-size {
-    font-size: 1.2rem;
-    font-weight: 500;
+    margin-top: 1.7rem;
+    font-size: 1.7rem;
+    font-weight: 400;
 }
 
 .product-price {
-    font-size: 2rem;
-    font-weight: 600;
+    margin-top: 1rem;
+    font-size: 2.5rem;
+    font-weight: 500;
 }
 
 .quantity-selector {
     display: flex;
     align-items: center;
-    gap: 1rem;
-
-    margin: 1rem 0;
+    gap: 1.2rem;
+    margin-top: 1.25rem;
 }
 
 .quantity-selector button {
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 3rem;
+    height: 3rem;
 
-    border: 1px solid #2F3C16;
+    border: 0.0625 solid #2F3C16;
     background: transparent;
 
+    font-size: 1.4rem;
+    font-weight: 300;
+
     cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 0.2rem;
 }
+
+.quantity-selector button:hover {
+    background: #2F3C16;
+    color:#FFFDF0;
+}
+
+.quantity-selector span {
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
 
 .product-cart-btn,
 .checkout-btn {
-    width: 100%;
-
+    border-radius: 0.3rem;
+    width: min(80%, 30rem);
+    display: block;
     padding: 1rem;
-
     border: none;
-
     font-size: 1rem;
     cursor: pointer;
 }
 
 .product-cart-btn {
+    margin-top: 1.5rem;
     background-color: #243B0B;
     color: white;
 }
@@ -808,6 +831,7 @@ button:hover {
 }
 
 .ingredients-block {
+    margin-top: 2rem;
     max-width: 28rem;
     align-self: start;
 }
