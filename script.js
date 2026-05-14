@@ -16,7 +16,7 @@ const products = [
         price: "A$45.00",
         image: "images/product2.jpg",
         link: "age-defying-hand-cream.html",
-        skin: "Recommended for dry, aging skin",
+        skin: "Suitable for all skin type",
         description: "Silky-soft and quick absorbing, this cream has harnessed the power of Oleuropein.",
         volume: "120 mL",
         tags: []
@@ -187,3 +187,34 @@ if (searchInput) {
         }
     });
 }
+
+
+if (
+
+    window.performance.getEntriesByType("navigation")[0].type === "reload"
+
+) {
+
+    sessionStorage.removeItem("cartItems");
+
+}
+
+// cart count //
+const cartBtn = document.querySelector(".product-cart-btn");
+const cartCount = document.querySelector(".cart-count");
+let cartItems = Number(sessionStorage.getItem("cartItems")) || 0;
+if (cartCount && cartItems > 0 ) {
+    cartCount.textContent = `(${cartItems})`;
+    cartCount.style.display = "block";
+}
+if (cartBtn && cartCount) {
+    cartBtn.addEventListener("click", () => {
+        cartItems++;
+
+        sessionStorage.setItem("cartItems", cartItems);
+
+        cartCount.textContent = `(${cartItems})`;
+        cartCount.style.display = "block";
+    });
+}
+

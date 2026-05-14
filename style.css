@@ -90,14 +90,31 @@ body {
     opacity: 0.6;
 }
 
+
 .cart-icon {
     width:1.5rem;
     height: auto;
     cursor: pointer;
 }
 
-.cart-icon:hover{
+.cart-icon:hover {
     opacity:0.6;
+}
+
+.cart-wrapper {
+    position: relative;
+}
+
+.cart-count {
+    display: none;
+    position: absolute;
+    top:-0.4rem;
+    right:-1.125rem;
+    font-size:1rem;
+    font-weight: 400;
+    color:#2F3C16;
+    min-width:1rem;
+    text-align:center;
 }
 
 .profile-icon {
@@ -714,9 +731,10 @@ button:hover {
 }
 
 .product-title {
-    font-size: clamp(2rem, 4vw, 3rem);
+    margin-top: 1rem;
+    font-size: clamp(2.5rem, 2vw, 2rem);
     font-weight: 600;
-    line-height: 1.1;
+    line-height: 0.95;
 }
 
 .product-subtitle {
