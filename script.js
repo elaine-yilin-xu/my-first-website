@@ -2,7 +2,7 @@ const products = [
 
     {
         name: "Revital Eyes Firming Gel",
-        price: "A$90.00",
+        price: 90,
         image: "images/product1.jpg",
         link: "revital-eyes-firming-gel.html",
         skin: "Recommended for all skin type",
@@ -13,7 +13,7 @@ const products = [
 
     {
         name: "Age Defying Hand Cream",
-        price: "A$45.00",
+        price: 45,
         image: "images/product2.jpg",
         link: "age-defying-hand-cream.html",
         skin: "Suitable for all skin type",
@@ -24,7 +24,7 @@ const products = [
 
     {
         name: "Desensitising Elixir",
-        price: "A$60.00",
+        price: 60,
         image: "images/product3.jpg",
         link: "desensitising-elixir.html",
         skin: "Recommended for all skin type",
@@ -35,7 +35,7 @@ const products = [
 
     {
         name: "Eye Contour Elixir",
-        price: "A$60.00",
+        price: 60,
         image: "images/product4.jpg",
         link: "eye-contour-elixir.html",
         skin: "Recommended for all skin type",
@@ -46,7 +46,7 @@ const products = [
 
     {
         name: "Hydrating Mud Mask",
-        price: "A$75.00",
+        price: 75,
         image: "images/product5.jpg",
         link: "hydrating-mud-mask.html",
         skin: "Recommended for all skin types",
@@ -57,7 +57,7 @@ const products = [
 
     {
         name: "Hydrating Conditioner",
-        price: "A$35.00",
+        price: 35,
         image: "images/product6.jpg",
         link: "hydrating-conditioner.html",
         skin: "Recommended for dry, dehydrated skin",
@@ -68,7 +68,7 @@ const products = [
 
     {
         name: "Age Defying Elixir",
-        price: "A$75.00",
+        price: 75,
         image: "images/product7.jpg",
         link: "age-defying-elixir.html",
         skin: "Recommended for dry, ageing skin",
@@ -79,7 +79,7 @@ const products = [
 
     {
         name: "Nourishing Dry Body Oil",
-        price: "A$40.00",
+        price: 40,
         image: "images/product8.jpg",
         link: "nourishing-dry-body-oil.html",
         skin: "Recommended for all skin types",
@@ -122,7 +122,8 @@ function renderProducts(productList) {
                         ${product.volume}
                     </p>
                     <div class="product-bottom">
-                        <p class="product-price-card">${product.price}</p>
+                        <p class="product-price-card">
+                            A$${product.price}.00</p>
                         <button type="button">
                             ADD TO CART
                         </button> 
@@ -188,20 +189,19 @@ if (searchInput) {
     });
 }
 
+// refreshes cart if user reload page //
 
-if (
-
+if(
     window.performance.getEntriesByType("navigation")[0].type === "reload"
-
 ) {
 
     sessionStorage.removeItem("cartItems");
-
 }
 
 // cart count //
 const cartBtn = document.querySelector(".product-cart-btn");
 const cartCount = document.querySelector(".cart-count");
+
 let cartItems = Number(sessionStorage.getItem("cartItems")) || 0;
 if (cartCount && cartItems > 0 ) {
     cartCount.textContent = `(${cartItems})`;
@@ -218,3 +218,96 @@ if (cartBtn && cartCount) {
     });
 }
 
+// save product into cart // 
+let cart = JSON.parse(sessionStorage.getItem("cart")) || [];
+function updateCartCount() {
+    if (cartCount && cart.length > 0) {
+        cartCount.textContent = `(${cart.length})`;
+        cartCount.style.display = "block";
+    }
+}
+
+updateCartCount();
+
+if (cartBtn) {
+    cartBtn.addEventListener("click", () => {
+        const product = {
+            id: cartBtn.dataset.id,
+            name: cartBtn.dataset.name,
+            price: Number(cartBtn.dataset.price),
+            size: cartBtn.dataset.size,
+            image: cartBtn.dataset.image,
+            quantity: 1
+        };
+        cart.push(product);
+        sessionStorage.setItem("cart", JSON.stringify(cart));
+        updateCartCount();
+    });
+}
+
+// js to display cart items
+const cartItemsContainer = document.getElementById("cart-items");
+const cartSubtotal = document.getElementById("cart-subtotal");
+const cartTotal = document.getElementById("cart-total");
+
+if (cartItemsContainer) {
+    const cart = JSON.parse(sessionStorage.getItem("cart")) || []
+    cartItemsContainer.innerHTML = "";
+    let subtotal = 0;
+    cart.forEach(product => {
+        subtotal += product.price * product.quantity;
+        cartItemsContainer.innerHTML += `
+            <article class="cart-item">
+                <img src="${product.image}" alt="${product.name}">
+                <div class="cart-item-info">
+                    <h2>${product.name}</h2>
+                    <p>${product.size}</p>
+                    <p>Quantity: ${product.quantity}</p>
+                    <p>A$${product.price}.00</p>
+                </div>
+            </article>
+        `;
+    });
+
+    cartSubtotal.textContent = `A$${subtotal}.00`;
+    cartTotal.textContent = `A$${subtotal}.00`;
+}
+
+// shipping input //
+const shippingAddressInput = document.getElementById("shipping-address");
+const proceedBtn = document.querySelector(".proceed-btn");
+
+if (shippingAddressInput) {
+    const savedAddress = sessionStorage.getItem("shippingAddress");
+
+    if (savedAddress) {
+        shippingAddressInput.value = savedAddress; 
+    }
+    shippingAddressInput.addEventListener("input", () => {
+        sessionStorage.setItem("shippingAddress", shippingAddressInput.value);
+    });
+}
+
+if (proceedBtn) {
+    proceedBtn.addEventListener("click", () => {
+        if (shippingAddressInput && shippingAddressInput.value.trim() === "") {
+            alert("Please enter your shipping address.");
+            return;
+        }
+
+        window.location.href = "checkout.html";
+    });
+}
+
+const confirmedAddress = document.getElementById("confirmed-address");
+if (confirmedAddress) {
+    confirmedAddress.textContent = sessionStorage.getItem("shippingAddress") || "No address entered";
+}
+
+const confirmBtn = document.querySelector(".confirm-btn");
+
+if(confirmBtn) {
+    confirmBtn.addEventListener("click", () => {
+        window.location.href = "payment-success.html";
+    });
+}

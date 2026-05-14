@@ -3,16 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>USPA Home</title>
+    <title>USPA Product</title>
 
-    <!-- LINK TO CSS -->
-    <link rel ="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
-
-
 <body>
-    <!-- HEADER GOBAL -->
+    <!-- GLOBAL HEADER -->
     <header class = "site-header">
         <nav class="navbar">
             <h1 class="logo">
@@ -27,7 +24,7 @@
 
             <ul class="nav-icons">
                 <li><img src="images/menu.svg" alt="Menu" class="nav-icon"></li>
-                <li class="search-wrapper">
+                 <li class="search-wrapper">
                     <img src="images/search.svg" alt="Search" class="search-icon">
                     <div class="search-dropdown">
                         <input
@@ -41,103 +38,52 @@
                     <a href="cart.html">
                         <img src="images/cart.svg" alt="Cart" class="cart-icon">
                     </a>
-                    
+
                     <span class="cart-count"></span>
                 </li> 
                 <li><img src="images/profile.svg" alt="Profile" class="profile-icon"></li>
             </ul>
         </nav>
     </header>
-        
-   
-
-
     <!-- MAIN CONTENT -->
-    <main>
-        <section class="shop-hero">
-            <p>a conscious choice. an everyday ritual. and a shared celebration of u.</p>
+    <main class="cart-page">
+        <section class="cart-list-section">
+            <h1> Your Cart</h1>
+            <section id="cart-items" class="cart-items"></section>
         </section>
 
+        <aside class="order-summary">
+            <h2>Order Summary</h2>
 
+            <div class="summary-row">
+                <span>Subtotal</span>
+                <span id="cart-subtotal">A$0.00</span>
+            </div>
 
-        <section class="shop-layout" aria-label="Shop all products">
-            <aside class ="filters" aria-label="Product filters">
+            <div class="summary-row">
+                <span>Shipping</span>
+                <span>Complimentary</span>
+            </div>
 
-                <h2>Filter by</h2>
+            <input
+                type="text"
+                id="shipping-address"
+                placeholder="Enter address"
+            >
 
-                <details> 
-                    <summary>Price</summary>
-                </details>
+            <div class="summary-total">
+                <span>Estimated Total</span>
+                <span id="cart-total">A$0.00</span>
+            </div>
 
-                <details> 
-                    <summary>Skin type</summary>
-                </details>
-
-                <details> 
-                    <summary>Skin concern</summary>
-                    <label>
-                        <input type="checkbox">
-                        Uneven Tone
-                    </label>
-                    <label>
-                        <input type="checkbox">
-                        Dullness
-                    </label>
-                    <label>
-                        <input type="checkbox">
-                        Oil
-                    </label>
-                    <label>
-                        <input type="checkbox" class="filter-checkbox" value="aging">
-                        Aging
-                    </label>
-                    <label>
-                        <input type="checkbox">
-                        Congestion
-                    </label>
-                </details>
-
-                <details> 
-                    <summary>Form</summary>
-                    <label>
-                        <input type="checkbox">
-                        Cleanser
-                    </label>
-                    <label>
-                        <input type="checkbox">
-                        Exfoliant
-                    </label>
-                    <label>
-                        <input type="checkbox">
-                        Mask
-                    </label>
-                    <label>
-                        <input type="checkbox">
-                        Moisturiser
-                    </label>
-                    <label>
-                        <input type="checkbox" class="filter-checkbox" value="elixir-serum">
-                        Elixir & Serum
-                    </label>
-                </details>
-
-                <details> 
-                    <summary>Ingredients</summary>
-                </details>
-
-                <button type="button" class="apply-btn">Apply</button>
-                <button type="button" class="reset-btn">Reset</button>
-            </aside>
-            <button type="button" class="mobile-filter-btn">Filter</button>
-
-            <section class="products" id="products-container" aria-label="Product list">
-
-            </section>
-           
-        </section>
-        
+            <button type="button" class="proceed-btn">
+                PROCEED TO CHECKOUT
+            </button>
+        </aside>
     </main>
-    <!-- FOOTER (golbal) -->
+ 
+
+    <!-- FOOTER -->
     <footer>
         <h2 class="footer-heading">
             We seek to inspire your path to optimal skin health in harmony.
@@ -165,7 +111,6 @@
                 <a href="#">Cookie policy</a>
             </section>
 
-
             <section class="footer-column newsletter">
                 <h3>Subscribe to the uspa community</h3>
 
@@ -192,8 +137,7 @@
         <p class="copyright">© 2026 uspa.</p>
     </footer>
 
-<script src="script.js"></script>
-    
+    <script src="script.js"></script>
 </body>
 
 </html>

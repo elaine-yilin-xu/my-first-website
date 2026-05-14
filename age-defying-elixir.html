@@ -32,9 +32,12 @@
                     </div>
                 </li>
                 <li class="cart-wrapper">
-                    <img src="images/cart.svg" alt="Cart" class="cart-icon">
+                    <a href="cart.html">
+                        <img src="images/cart.svg" alt="Cart" class="cart-icon">
+                    </a>
+                    
                     <span class="cart-count"></span>
-                </li> 
+                </li>
                 <li><img src="images/profile.svg" alt="Profile" class="profile-icon"></li>
             </ul>
 
@@ -87,7 +90,14 @@
 
                 <!-- BUTTONS -->
 
-                <button class="product-cart-btn">
+                <button 
+                    class="product-cart-btn"
+                    data-id="age-defying-elixir"
+                    data-name="Age Defying Elixir"
+                    data-price="75"
+                    data-size="30 mL"
+                    data-image="images/product7.jpg"
+                >
                     ADD TO CART
                 </button>
                 <button class="checkout-btn">
