@@ -248,6 +248,7 @@ if (cartBtn) {
                 price: Number(cartBtn.dataset.price),
                 size: cartBtn.dataset.size,
                 image: cartBtn.dataset.image,
+                description: cartBtn.dataset.description,
                 quantity: 1
             };
             cart.push(product);
@@ -263,7 +264,7 @@ const cartSubtotal = document.getElementById("cart-subtotal");
 const cartTotal = document.getElementById("cart-total");
 
 if (cartItemsContainer) {
-    const cart = JSON.parse(sessionStorage.getItem("cart")) || []
+    let cart = JSON.parse(sessionStorage.getItem("cart")) || [];
     cartItemsContainer.innerHTML = "";
     let subtotal = 0;
     cart.forEach(product => {
@@ -274,16 +275,70 @@ if (cartItemsContainer) {
                 <div class="cart-item-info">
                     <h2>${product.name}</h2>
                     <p>${product.size}</p>
-                    <p>Quantity: ${product.quantity}</p>
+                    <p>${product.description || ""}</p>
+
+                    <div class="cart-item-actions">
+                        <button class="cart-minus" data-id="${product.id}">-</button>
+                        <span>${product.quantity}</span>
+                        <button class="cart-plus" data-id="${product.id}">+</button>
+                        
+                        <div class="stock-label">
+                            <img src="images/in-stock.svg" alt="In stock">
+                            <span>In stock</span>
+                        </div>
+
+                        <button class="cart-delete" data-id="${product.id}">
+                            <img src="images/bin.svg" alt="Remove item">
+                        </button>
+                    </div>
+
                     <p>A$${product.price * product.quantity}.00</p>
                 </div>
             </article>
         `;
     });
 
+    // subtotal logic
     cartSubtotal.textContent = `A$${subtotal}.00`;
     cartTotal.textContent = `A$${subtotal}.00`;
+
+    // button logic 
+    document.querySelectorAll(".cart-plus").forEach(button => {
+        button.addEventListener("click", () => {
+            const product = cart.find(item => item.id === button.dataset.id);
+
+            if (product) {
+                product.quantity++;
+                sessionStorage.setItem("cart", JSON.stringify(cart));
+                location.reload();
+            }
+        });
+    });
+
+    document.querySelectorAll(".cart-minus").forEach(button => {
+        button.addEventListener("click", () => {
+            const product = cart.find(item => item.id === button.dataset.id);
+
+            if (product && product.quantity > 1) {
+                product.quantity--;
+                sessionStorage.setItem("cart", JSON.stringify(cart));
+                location.reload();
+            }
+        });
+    });
+
+    document.querySelectorAll(".cart-delete").forEach(button => {
+        button.addEventListener("click", () => {
+            cart = cart.filter(item => item.id !== button.dataset.id);
+
+            sessionStorage.setItem("cart", JSON.stringify(cart));
+            location.reload();
+        });
+    });
 }
+
+
+
 
 // shipping input //
 const shippingAddressInput = document.getElementById("shipping-address");
