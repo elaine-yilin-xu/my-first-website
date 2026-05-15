@@ -123,7 +123,7 @@ function renderProducts(productList) {
                     </p>
                     <div class="product-bottom">
                         <p class="product-price-card">
-                            A$${product.price}.00</p>
+                        A$${product.price}.00</p>
                         <button type="button">
                             ADD TO CART
                         </button> 
@@ -221,8 +221,12 @@ if (cartBtn && cartCount) {
 // save product into cart // 
 let cart = JSON.parse(sessionStorage.getItem("cart")) || [];
 function updateCartCount() {
-    if (cartCount && cart.length > 0) {
-        cartCount.textContent = `(${cart.length})`;
+    const totalItems = cart.reduce(
+        (total, product) => total + product.quantity,
+        0
+    );
+    if (cartCount && totalItems > 0) {
+        cartCount.textContent = `(${totalItems})`;
         cartCount.style.display = "block";
     }
 }
@@ -231,15 +235,23 @@ updateCartCount();
 
 if (cartBtn) {
     cartBtn.addEventListener("click", () => {
-        const product = {
-            id: cartBtn.dataset.id,
-            name: cartBtn.dataset.name,
-            price: Number(cartBtn.dataset.price),
-            size: cartBtn.dataset.size,
-            image: cartBtn.dataset.image,
-            quantity: 1
-        };
-        cart.push(product);
+
+        const productId = cartBtn.dataset.id;
+        const existingProduct = cart.find( item => item.id === productId
+        );
+        if (existingProduct) {
+            existingProduct.quantity++;
+        } else {
+            const product = {
+                id: productId,
+                name: cartBtn.dataset.name,
+                price: Number(cartBtn.dataset.price),
+                size: cartBtn.dataset.size,
+                image: cartBtn.dataset.image,
+                quantity: 1
+            };
+            cart.push(product);
+        }
         sessionStorage.setItem("cart", JSON.stringify(cart));
         updateCartCount();
     });
@@ -263,7 +275,7 @@ if (cartItemsContainer) {
                     <h2>${product.name}</h2>
                     <p>${product.size}</p>
                     <p>Quantity: ${product.quantity}</p>
-                    <p>A$${product.price}.00</p>
+                    <p>A$${product.price * product.quantity}.00</p>
                 </div>
             </article>
         `;
