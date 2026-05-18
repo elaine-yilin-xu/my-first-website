@@ -87,17 +87,17 @@
                 <p>Step 2/3</p>
 
                 <label class="checkout-option">
-                    <input type="radio" name="payment" checked>
+                    <input type="radio" name="payment" value="card">
                     <span>Credit or Debit card</span>
                 </label>
 
                 <label class="checkout-option">
-                    <input type="radio" name="payment">
+                    <input type="radio" name="payment" value="applepay">
                     <span>Apple Pay</span>
                 </label>
             </section>
 
-            <section class="checkout-panel">
+            <section class="checkout-panel card-details-panel">
                 <h2>Enter card details</h2>
                 <p>Step 3/3</p>
 
@@ -166,7 +166,9 @@
         <p class="copyright">© 2026 uspa.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="cart.js"></script>
+    <script src="checkout.js"></script>
+
 </body>
 
 </html>

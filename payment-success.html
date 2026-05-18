@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Confirmed</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="payment-success-page">
+        <section class="success-header">
+            <h1>PAYMENT SUCCESSFUL</h1>
+            <div class="success-icon">
+                ✓
+            </div>
+            <h2>ORDER NUMBER #982387</h2>
+            <p>Thank you for your order!</p>
+        </section>
+
+        <aside class="success-order-summary">
+            <h2>Order Summary</h2>
+            <div class="summary-total">
+                <span class="summary-label">Order Total</span>
+                <span id="cart-total">A$0.00</span>
+            </div>
+
+            <section id="cart-items" class="cart-items"></section>
+
+            <div class="summary-row">
+                <span id="shipping-label" class="summary-label">Shipping</span>
+                <span id="shipping-cost">A$10.00</span>
+            </div>
+
+            <p class="shipping-note">
+                Standard shipping to:<br>
+                <span id="confirmed-address">Loading address...</span>
+            </p>
+
+            <p class="arrival-note">
+                Estimated arrival time:<br>
+                7–14 business days
+            </p>
+        </aside>
+
+    </main>
+
+<script src="cart.js"></script>
+<script src="checkout.js"></script>
+
+</body>
+</html>

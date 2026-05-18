@@ -452,4 +452,25 @@ shippingOptions.forEach(option => {
     });
 });
 updateCheckoutTotal();
-  
+
+// hiding payment panel when not selected // 
+const paymentOptions = document.querySelectorAll('input[name="payment"]');
+const cardDetailsPanel = document.querySelector(".card-details-panel");
+const confirmBtn = document.querySelector(".confirm-btn");
+
+paymentOptions.forEach(option => {
+    option.addEventListener("change", () => {
+        if (option.value === "card") {
+            cardDetailsPanel.classList.add("active");
+        }
+        if (option.value === "applepay") {
+            cardDetailsPanel.classList.remove("active");
+        }
+    });
+});
+
+if (confirmBtn) {
+    confirmBtn.addEventListener("click", () => {
+        window.location.href = "payment-success.html";
+    });
+}

@@ -1267,3 +1267,12 @@ button:hover {
     border-radius: 0.25rem;
 }
 
+
+.card-details-panel {
+    display: none;
+}
+
+.card-details-panel.active {
+    display: block;
+}
+
