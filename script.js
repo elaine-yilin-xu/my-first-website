@@ -265,6 +265,7 @@ const cartTotal = document.getElementById("cart-total");
 
 if (cartItemsContainer) {
     let cart = JSON.parse(sessionStorage.getItem("cart")) || [];
+    const isCheckoutPage = document.querySelector(".checkout-page");
     cartItemsContainer.innerHTML = "";
     let subtotal = 0;
     cart.forEach(product => {
@@ -274,6 +275,17 @@ if (cartItemsContainer) {
                 <img src="${product.image}" alt="${product.name}">
                 <div class="cart-item-info">
                     <h2 class="cart-title">${product.name}</h2>
+
+                    ${isCheckoutPage ? `
+                        <p class="checkout-cart-volume">
+                            ${product.size}
+                        </p>
+
+                        <p class="checkout-cart-quantity">
+                            Quantity: ${product.quantity}
+                        </P>
+                    ` : ""}
+
                     <p class="cart-volume">${product.size}</p>
                     <p class="cart-description">${product.description || ""}</p>
 
@@ -381,3 +393,63 @@ if(confirmBtn) {
         window.location.href = "payment-success.html";
     });
 }
+
+
+// checkout logic //
+
+const shippingOptions = document.querySelectorAll('input[name="shipping"]');
+function updateCheckoutTotal() {
+    const cart = JSON.parse(sessionStorage.getItem("cart")) || [];
+    let subtotal = 0;
+    cart.forEach(product => {
+        subtotal += product.price * product.quantity;
+    });
+    const selectedShipping =
+        document.querySelector('input[name="shipping"]:checked');
+    
+    let shippingCost = 0;
+
+    if (selectedShipping) {
+        if (selectedShipping.value === "delivery") {
+            shippingCost = 10;
+        }
+
+        if (selectedShipping.value === "pickup") {
+            shippingCost = 0;
+        }
+    }
+    if (cartSubtotal) {
+        cartSubtotal.textContent = `A$${subtotal}.00`;
+    }
+    if(cartTotal) {
+        cartTotal.textContent = `A$${subtotal + shippingCost}.00`;
+    }
+
+    const shippingLabel = document.getElementById("shipping-label");
+    const shippingPrice = document.getElementById("shipping-cost");
+
+    if (shippingLabel && shippingPrice) {
+
+        if (selectedShipping && selectedShipping.value === "delivery") {
+            shippingLabel.textContent = "Standard shipping";
+            shippingPrice.textContent = "A$10.00";
+        } else if (
+            selectedShipping &&
+            selectedShipping.value === "pickup"
+        ) {
+            shippingLabel.textContent = "Collect in store";
+            shippingPrice.textContent = "FREE";
+
+        } else {
+            shippingLabel.textContent = "Shipping";
+            shippingPrice.textContent = "Select option";
+        }       
+    }
+}
+shippingOptions.forEach(option => {
+    option.addEventListener("change", () => {
+        updateCheckoutTotal();
+    });
+});
+updateCheckoutTotal();
+  
