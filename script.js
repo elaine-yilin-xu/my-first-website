@@ -273,18 +273,22 @@ if (cartItemsContainer) {
             <article class="cart-item">
                 <img src="${product.image}" alt="${product.name}">
                 <div class="cart-item-info">
-                    <h2>${product.name}</h2>
-                    <p>${product.size}</p>
-                    <p>${product.description || ""}</p>
+                    <h2 class="cart-title">${product.name}</h2>
+                    <p class="cart-volume">${product.size}</p>
+                    <p class="cart-description">${product.description || ""}</p>
+
+                    <p class="cart-price">
+                        A$${product.price * product.quantity}.00
+                    </p>
 
                     <div class="cart-item-actions">
                         <button class="cart-minus" data-id="${product.id}">-</button>
-                        <span>${product.quantity}</span>
+                        <span class="cart-quantity">${product.quantity}</span>
                         <button class="cart-plus" data-id="${product.id}">+</button>
                         
                         <div class="stock-label">
-                            <img src="images/in-stock.svg" alt="In stock">
-                            <span>In stock</span>
+                            <span class="stock-dot"></span>
+                            <span class="stock-text">In stock</span>
                         </div>
 
                         <button class="cart-delete" data-id="${product.id}">
@@ -292,7 +296,6 @@ if (cartItemsContainer) {
                         </button>
                     </div>
 
-                    <p>A$${product.price * product.quantity}.00</p>
                 </div>
             </article>
         `;
