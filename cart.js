@@ -65,7 +65,9 @@ const cartTotal = document.getElementById("cart-total");
 
 if (cartItemsContainer) {
     let cart = JSON.parse(sessionStorage.getItem("cart")) || [];
-    const isCheckoutPage = document.querySelector(".checkout-page");
+    const isSummaryPage = 
+        document.querySelector(".checkout-page") ||
+        document.querySelector(".payment-success-page");
     cartItemsContainer.innerHTML = "";
     let subtotal = 0;
     cart.forEach(product => {
@@ -76,7 +78,7 @@ if (cartItemsContainer) {
                 <div class="cart-item-info">
                     <h2 class="cart-title">${product.name}</h2>
 
-                    ${isCheckoutPage ? `
+                    ${isSummaryPage ? `
                         <p class="checkout-cart-volume">
                             ${product.size}
                         </p>
@@ -115,7 +117,15 @@ if (cartItemsContainer) {
 
     // subtotal logic
     cartSubtotal.textContent = `A$${subtotal}.00`;
-    cartTotal.textContent = `A$${subtotal}.00`;
+    const isPaymentSuccessPage = document.querySelector(".payment-success-page");
+
+    if (cartTotal) {
+        if (isPaymentSuccessPage) {
+            cartTotal.textContent = `A$${subtotal + 10}.00`;
+        } else {
+            cartTotal.textContent = `A$${subtotal}.00`;
+        }
+    }
 
     // button logic 
     document.querySelectorAll(".cart-plus").forEach(button => {

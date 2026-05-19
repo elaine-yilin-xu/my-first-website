@@ -1241,22 +1241,16 @@ button:hover {
 }
 
 .checkout-page .checkout-cart-volume {
-
     font-size: 0.8rem;
-
 }
 
 .checkout-page .checkout-cart-quantity {
-
     font-size: 0.8rem;
-
 }
 
 .checkout-page .cart-price {
-
     font-size: 0.8rem;
     font-weight: 500;
-
 }
 
 .confirm-btn {
@@ -1276,3 +1270,144 @@ button:hover {
     display: block;
 }
 
+/* payment success page */
+
+.payment-success-page .cart-description,
+.payment-success-page .cart-item-actions {
+    display: none;
+}
+
+.payment-success-page .cart-volume {
+    display: none;
+}
+
+
+.payment-success-page .checkout-cart-volume,
+.payment-success-page .checkout-cart-quantity {
+    display: block;
+}
+
+
+.payment-success-page {
+    width: min(90%, 40rem);
+    margin: 5rem auto 8rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 3rem;
+}
+
+.success-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+
+.success-header h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 600;
+    letter-spacing: -0.04rem;
+    margin-bottom: 2rem;
+}
+
+.success-icon {
+    width: 10rem;
+    height: 12rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 2rem;
+}
+
+.success-icon img{
+    width: 100%;
+    height: 100%;
+    object-fit:contain;
+}
+
+.success-header h2 {
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+.success-order-summary {
+    width: 100%;
+    background: rgba(47, 60, 22, 0.06);
+    padding: 2.5rem;
+    border-radius: 0.5rem;
+}
+
+.success-order-summary h2 {
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+}
+
+/* make product cards smaller */
+
+
+.payment-success-page .cart-item-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 0.3rem;
+}
+
+.payment-success-page .cart-title,
+.payment-success-page .checkout-cart-volume,
+.payment-success-page .checkout-cart-quantity,
+.payment-success-page .cart-price {
+    margin: 0;
+}
+
+.payment-success-page .cart-item {
+    display: grid;
+    grid-template-columns: 5rem 1fr;
+    max-width: 100%;
+    gap: 1rem;
+    align-items: start;
+    column-gap: 1.5rem;
+    margin-bottom: 0;
+}
+
+.payment-success-page .cart-item img {
+    aspect-ratio: 1/1;
+}
+
+.payment-success-page .cart-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+}
+
+.payment-success-page .checkout-cart-volume,
+.payment-success-page .checkout-cart-quantity {
+    font-size: 0.8rem;
+    line-height: 1.3;
+}
+
+.payment-success-page .cart-price {
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+}
+
+/* summary */
+.payment-success-page .summary-total {
+    margin-bottom: 2rem;
+}
+
+.shipping-note,
+.arrival-note {
+    font-size: 0.75rem;
+    line-height: 1.5;
+    opacity: 0.6;
+    margin-top: 1rem;
+}
