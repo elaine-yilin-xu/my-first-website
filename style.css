@@ -1625,11 +1625,6 @@ button:hover {
     }
 
 
-
-   
- 
-
-    /* cart */
     /* CART PAGE MOBILE */
     .cart-page {
         width: 90%;
@@ -1671,8 +1666,11 @@ button:hover {
     }
 
     .cart-item-actions {
-        gap: 0.75rem;
-        flex-wrap: wrap;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: nowrap;
+        overflow: visible;
     }
 
     .stock-label {
@@ -1683,9 +1681,29 @@ button:hover {
         font-size: 0.75rem;
     }
 
+    .cart-delete {
+        width: 2rem;
+        height: 2rem;
+        padding: 0.25rem;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        overflow: visible;
+        flex-shrink: 0;
+    }
+
+    .cart-item-info,
+    .cart-item {
+        overflow: visible;
+    }
+
     .cart-delete img {
         width: 1.25rem;
         height: 1.25rem;
+        display: block;
+        object-fit: contain;
     }
 
     /* order summary goes below cart items */
@@ -1774,12 +1792,10 @@ button:hover {
         margin-top: 0.05rem;
     }
     .payment-success-page .cart-price {
-
         font-size: 0.8rem;
-
         margin-top: 0.4rem;
-
     }
+
     .payment-success-page .cart-item-info {
         display: flex;
         flex-direction: column;
@@ -1793,12 +1809,8 @@ button:hover {
     .payment-success-page .cart-title {
         font-size: 0.8rem;
         line-height: 1.1;
-
         text-align: left;
     }
-
-
-}
 
 
 
