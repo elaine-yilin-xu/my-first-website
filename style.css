@@ -1326,7 +1326,7 @@ button:hover {
     .nav-icons {
         display: flex;
         align-items: center;
-        gap: 0.75rem;
+        gap: 1rem;
     }
 
     .logo a {
@@ -1421,6 +1421,7 @@ button:hover {
         color: #2F3C16;
         font-size: 1rem;
     }
+
     /* product grid */ 
     .products {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1480,11 +1481,327 @@ button:hover {
 
     /* shop */
 
-    /* product */
+    /* product page */
+    .breadcrumb {
+        width: 85%;
+        padding: 0;
+        margin: 0 auto 0.5rem;
+        font-size: 1rem;
+    }
+    .product-page {
+        grid-template-columns: 1fr;
+        width: 90%;
+        padding: 0; 
+        gap: 1rem;
+    }
+
+    .product-image-section {
+        width: 100%;
+    }
+    
+    .product-image {
+        width: 100%;
+        aspect-ratio: 1/1;
+        object-fit: cover;
+        border-radius: 0.3rem;
+    }
+
+    .product-info-section {
+        width: 100%;
+        gap: 1rem;
+        margin-top: 0.8rem;
+    }
+
+    .product-title {
+        font-size: 1.5rem;
+        line-height: 0.85;
+        margin-top: 0;
+    }
+
+    .product-subtitle {
+        font-size: 1.2rem;
+        font-style: italic;
+        font-weight: 320;
+        line-height: 0.7;
+        margin-top: 0.15rem;
+        opacity: 0.8;
+    }
+
+    .product-size {
+        font-size: 1.3rem;
+        margin-top: 0.5rem;
+        font-weight: 500rem;
+    }
+
+    .product-price {
+        font-size: 1.75rem;
+    }
+
+    .product-purchase-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 1rem;
+    }
+
+    .product-price {
+        margin: 0;
+    }
+
+    .quantity-selector {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin: 0;
+    }
+
+    .quantity-selector button {
+        width: 2.2rem;
+        height: 2.2rem;
+        border: 0.0625rem solid #2F3C16;
+        background: transparent;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;      
+    }
+
+    .quantity-selector span {
+        font-size: 1rem;
+        min-width: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    
+    .checkout-btn {
+        display: none;
+    }
+
+    .product-cart-btn {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+
+    /* PRODUCT DETAILS MOBILE */
+    .product-details {
+        width: 90%;
+        margin: 3rem auto 4rem;
+        padding: 0;
+
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .details-left {
+        gap: 2rem;
+    }
+
+    .detail-block,
+    .ingredients-block {
+        width: 100%;
+        padding: 0;
+    }
+
+    .detail-block h2,
+    .ingredients-block h2 {
+        font-size: 1.5rem;
+        margin-bottom: 0.1rem;
+    }
+
+    .detail-block p,
+    .ingredients-block li {
+        font-size: 0.95rem;
+        line-height: 1.45;
+    }
+
+    .ingredients-block ul {
+        padding-left: 1.1rem;
+    }
+
+
+
+   
+ 
 
     /* cart */
+    /* CART PAGE MOBILE */
+    .cart-page {
+        width: 90%;
+        margin: 2rem auto 4rem;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
 
-    /* checkout */
+    .cart-list-section h1 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .cart-item {
+        max-width: 100%;
+        grid-template-columns: 8rem 1fr;
+        gap: 1rem;
+    }
+
+    .cart-item img {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+    }
+
+    .cart-title {
+        font-size: 1rem;
+        line-height: 1.15;
+    }
+
+    .cart-volume,
+    .cart-description {
+        font-size: 0.85rem;
+        line-height: 1.35;
+    }
+
+    .cart-price {
+        font-size: 1.1rem;
+    }
+
+    .cart-item-actions {
+        gap: 0.75rem;
+        flex-wrap: wrap;
+    }
+
+    .stock-label {
+        padding: 0.4rem 0.55rem;
+    }
+
+    .stock-text {
+        font-size: 0.75rem;
+    }
+
+    .cart-delete img {
+        width: 1.25rem;
+        height: 1.25rem;
+    }
+
+    /* order summary goes below cart items */
+
+    .cart-page .order-summary {
+        position: static;
+        width: 100%;
+        margin-top: 1rem;
+    }
+
+    .proceed-btn {
+        width: 100%;
+    }
+
+    /* checkout page mobile*/
+
+    .checkout-page {
+        width: 90%;
+        margin: 2rem auto 4rem;
+
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    /* move order summary to top */
+
+    .checkout-page .order-summary {
+        position: static;
+        width: 100%;
+        order: -1;
+    }
+
+    /* checkout panels */
+
+    .checkout-steps {
+        width: 100%;
+        gap: 1.5rem;
+    }
+
+    .checkout-panel {
+        padding: 1.5rem;
+        border-radius: 0.5rem;
+    }
+
+    .checkout-panel h2 {
+        font-size: 1.8rem;
+        line-height: 1.1;
+    }
+
+    .checkout-panel > p {
+        font-size: 0.95rem;
+        margin-bottom: 1.2rem;
+    }
+
+    /* shipping/payment options */
+
+    .checkout-option {
+        padding: 1rem;
+        gap: 0.75rem;
+    }
+
+    .checkout-option label {
+        font-size: 1rem;
+        line-height: 1.3;
+    }
+
+    /* card details */
+
+    .card-details-panel input {
+        font-size: 1rem;
+    }
+
+    /* buttons */
+
+    .confirm-btn {
+        width: 100%;
+    }
+
+
+    /* payment success page */ 
+    .payment-success-page .checkout-cart-volume,
+    .payment-success-page .checkout-cart-quantity {
+        font-size: 0.8rem;
+        line-height: 1.2;
+
+        margin-top: 0.05rem;
+    }
+    .payment-success-page .cart-price {
+
+        font-size: 0.8rem;
+
+        margin-top: 0.4rem;
+
+    }
+    .payment-success-page .cart-item-info {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .payment-success-page .cart-item {
+        gap: 1rem;
+    }
+
+    .payment-success-page .cart-title {
+        font-size: 0.8rem;
+        line-height: 1.1;
+
+        text-align: left;
+    }
+
+
+}
+
+
+
 
     /* footer */
     footer {
