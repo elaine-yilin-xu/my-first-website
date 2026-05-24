@@ -283,7 +283,7 @@ if (cartItemsContainer) {
 
                         <p class="checkout-cart-quantity">
                             Quantity: ${product.quantity}
-                        </P>
+                        </p>
                     ` : ""}
 
                     <p class="cart-volume">${product.size}</p>
@@ -386,13 +386,13 @@ if (confirmedAddress) {
     confirmedAddress.textContent = sessionStorage.getItem("shippingAddress") || "No address entered";
 }
 
-const confirmBtn = document.querySelector(".confirm-btn");
+// const confirmBtn = document.querySelector(".confirm-btn");
 
-if(confirmBtn) {
-    confirmBtn.addEventListener("click", () => {
-        window.location.href = "payment-success.html";
-    });
-}
+// if(confirmBtn) {
+//     confirmBtn.addEventListener("click", () => {
+//         window.location.href = "payment-success.html";
+//     });
+// }
 
 
 // checkout logic //
