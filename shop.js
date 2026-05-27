@@ -161,32 +161,49 @@ function focusProductCards() {
 window.addEventListener("scroll", focusProductCards);
 focusProductCards();
 ///
+const applyBtns = document.querySelectorAll(".apply-btn");
+const resetBtns = document.querySelectorAll(".reset-btn");
 
-const applyBtn = document.querySelector(".apply-btn");
-const resetBtn = document.querySelector(".reset-btn");
+applyBtns.forEach(button => {
+    button.addEventListener("click", () => {
 
-// && means logical AND 
-if (applyBtn && productsContainer) {
-    applyBtn.addEventListener("click", () => {
         const checkedFilters = Array.from(
             document.querySelectorAll(".filter-checkbox:checked")
         ).map(checkbox => checkbox.value);
+
         const filteredProducts = products.filter(product => {
-            return checkedFilters.every(filter => product.tags.includes(filter));
+            return checkedFilters.every(filter =>
+                product.tags.includes(filter)
+            );
         });
+
         renderProducts(filteredProducts);
+
+        focusProductCards();
+
+        // close mobile filter page after apply
+        if (mobileFilterPage && productsSection && mobileFilterBtn) {
+            mobileFilterPage.classList.remove("active");
+            productsSection.style.display = "";
+            mobileFilterBtn.style.display = "";
+        }
+
     });
-}
+});
 
-if (resetBtn && productsContainer) {
-    resetBtn.addEventListener("click", () => {
+resetBtns.forEach(button => {
+    button.addEventListener("click", () => {
+
         document.querySelectorAll(".filter-checkbox").forEach(checkbox => {
-
             checkbox.checked = false;
         });
+
         renderProducts(products);
+
+        focusProductCards();
+
     });
-}
+});
 
 
 // search drop down
@@ -209,5 +226,26 @@ if (searchInput) {
                 window.location.href = "age-defying-elixir.html";
             }
         }
+    });
+}
+
+const mobileFilterBtn = document.querySelector(".mobile-filter-btn");
+const mobileFilterPage = document.querySelector(".mobile-filter-page");
+const closeFilterBtn = document.querySelector(".close-filter-btn");
+const productsSection = document.querySelector(".products");
+
+if (mobileFilterBtn && mobileFilterPage) {
+    mobileFilterBtn.addEventListener("click", () => {
+        mobileFilterPage.classList.add("active");
+        productsSection.style.display = "none";
+        mobileFilterBtn.style.display = "none";
+    });
+}
+
+if (closeFilterBtn && mobileFilterPage) {
+    closeFilterBtn.addEventListener("click", () => {
+        mobileFilterPage.classList.remove("active");
+        productsSection.style.display = "grid";
+        mobileFilterBtn.style.display = "block";
     });
 }
