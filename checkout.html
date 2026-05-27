@@ -72,7 +72,8 @@
                 <label class="checkout-option">
                     <input type="radio" name="shipping" value="delivery">
                     <span class="checkout-price shipping-price">A$10.00</span>
-                    <span id="confirmed-address">Loading address...</span>
+                    <img src="images/home.svg" alt="Home delivery" class="checkout-icon">
+                    <span id="confirmed-address" class="checkout-text-bold">Loading address...</span>
                 </label>
 
                 <label class="checkout-option">
@@ -89,11 +90,13 @@
                 <label class="checkout-option">
                     <input type="radio" name="payment" value="card">
                     <span>Credit or Debit card</span>
+                    <img src="images/card.svg" alt="Accepted cards" class="checkout-card-icon">
                 </label>
 
                 <label class="checkout-option">
                     <input type="radio" name="payment" value="applepay">
                     <span>Apple Pay</span>
+                    <img src="images/applepay.svg" alt="Apple Pay" class="checkout-card-icon applepay-icon">
                 </label>
             </section>
 
@@ -101,12 +104,41 @@
                 <h2>Enter card details</h2>
                 <p>Step 3/3</p>
 
-                <input type="text" id="card-number" placeholder="Card number">
-                <input type="text" id="expiry-date" placeholder="Expiry date">
-                <input type="text" id="cvc" placeholder="CVC/CVV">
+                <section class="card-form-box">
+                    <div class="card-form-heading">
+                        <img src="images/subtitles.svg" alt="" class="card-info-icon">
+                        <h3>Card Information</h3>
+                    </div>
 
+                    <label for="card-number">Card number</label>
+                    <input 
+                        type="text" 
+                        id="card-number" 
+                        placeholder="1234 5678 9012 3456"
+                    >
+
+                    <div class="card-input-row">
+                        <div>
+                            <label for="expiry-date">Expiry Date</label>
+                            <input 
+                                type="text"
+                                id="expiry-date"
+                                placeholder="MM / YY"
+                            >
+                        </div>
+
+                        <div>
+                            <label for="cvc">CVC/CVV</label>
+                            <input 
+                                type="text" 
+                                id="cvc"
+                                placeholder="CVC/CVV"
+                            >
+                        </div>
+                    </div>
+                </section>
                 <button type="button" class="confirm-btn">
-                    Confirm Card
+                    CONFIRM PAYMENT
                 </button>
             </section>
         </section>
