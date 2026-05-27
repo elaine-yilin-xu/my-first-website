@@ -139,6 +139,29 @@ if (productsContainer) {
     renderProducts(products);
 }
 
+// product cart transition animation
+function focusProductCards() {
+    const productCards =
+        document.querySelectorAll(".product-card");
+    const windowCenter = window.innerHeight / 2;
+
+    productCards.forEach(card => {
+        const rect = card.getBoundingClientRect();
+        const cardCenter =
+            rect.top + rect.height / 2;
+        const distance =
+            Math.abs(windowCenter - cardCenter);
+        if (distance < 220) {
+            card.classList.add("active");
+        } else {
+            card.classList.remove("active");
+        }
+    });
+}
+window.addEventListener("scroll", focusProductCards);
+focusProductCards();
+///
+
 const applyBtn = document.querySelector(".apply-btn");
 const resetBtn = document.querySelector(".reset-btn");
 

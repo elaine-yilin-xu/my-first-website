@@ -1,3 +1,29 @@
+const revealElements = document.querySelectorAll(
+    ".reveal-text, .reveal-image"
+);
+
+const revealOnScroll = () => {
+
+    revealElements.forEach((element) => {
+
+        const windowHeight = window.innerHeight;
+        const elementTop = element.getBoundingClientRect().top;
+        const elementBottom = element.getBoundingClientRect().bottom;
+
+        if (elementTop < windowHeight - 100 && elementBottom > 100) {
+            element.classList.add("active");
+        } else {
+            element.classList.remove("active");
+        }
+
+    });
+
+};
+
+window.addEventListener("scroll", revealOnScroll);
+
+revealOnScroll();
+
 const products = [
 
     {
