@@ -92,7 +92,24 @@ const products = [
 ];
 
 const productsContainer = document.getElementById("products-container"); // find html with id = products-container
+const cartCount = document.querySelector(".cart-count");
 
+function updateCartCount() {
+    const cart =
+        JSON.parse(sessionStorage.getItem("cart")) || [];
+    const totalItems = cart.reduce(
+        (total, product) => total + product.quantity,
+        0
+    );
+
+    if (cartCount && totalItems > 0) {
+        cartCount.textContent = `(${totalItems})`;
+        cartCount.style.display = "block";
+    }
+
+}
+
+updateCartCount();
 // take list of products and display them on the page
 function renderProducts(productList) {
     productsContainer.innerHTML = ""; // wipes container clean

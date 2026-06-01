@@ -1455,6 +1455,29 @@ button:hover {
     margin-bottom: 2rem;
 }
 
+/* cart animation */ 
+
+.flying-cart-dot {
+    position: fixed;
+    width: 1.6rem;
+    height: 1.6rem;
+    background: #243B0B;
+    border-radius: 50%;
+    z-index: 9999;
+    pointer-events: none;
+    transition: all 1.4s ease;
+}
+
+.flying-cart-dot.active {
+    transform: scale(0.4);
+    opacity: 0;
+}
+
+.product-cart-btn.added {
+    background: #182205;
+    color: #FFFDF0;
+}
+
 /* make product cards smaller */
 
 

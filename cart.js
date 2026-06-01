@@ -55,6 +55,9 @@ if (cartBtn) {
         }
         sessionStorage.setItem("cart", JSON.stringify(cart));
         updateCartCount();
+
+        showAddToCartAnimation();
+        showAddedButtonState();
     });
 }
 
@@ -194,4 +197,44 @@ if (proceedBtn) {
 const confirmedAddress = document.getElementById("confirmed-address");
 if (confirmedAddress) {
     confirmedAddress.textContent = sessionStorage.getItem("shippingAddress") || "No address entered";
+}
+
+// cart animation //
+function showAddedButtonState() {
+    if (!cartBtn) return;
+
+    cartBtn.textContent = "PRODUCT ADDED ✓";
+    cartBtn.classList.add("added");
+
+    setTimeout(() => {
+        cartBtn.textContent = "ADD TO CART";
+        cartBtn.classList.remove("added");
+    }, 1600);
+}
+
+function showAddToCartAnimation() {
+    const cartIcon = document.querySelector(".cart-icon");
+
+    if (!cartBtn || !cartIcon) return;
+
+    const flyingDot = document.createElement("span");
+    flyingDot.classList.add("flying-cart-dot");
+
+    document.body.appendChild(flyingDot);
+
+    const buttonRect = cartBtn.getBoundingClientRect();
+    const cartRect = cartIcon.getBoundingClientRect();
+
+    flyingDot.style.left = `${buttonRect.left + buttonRect.width / 2}px`;
+    flyingDot.style.top = `${buttonRect.top + buttonRect.height / 2}px`;
+
+    requestAnimationFrame(() => {
+        flyingDot.style.left = `${cartRect.left + cartRect.width / 2}px`;
+        flyingDot.style.top = `${cartRect.top + cartRect.height / 2}px`;
+        flyingDot.classList.add("active");
+    });
+
+    setTimeout(() => {
+        flyingDot.remove();
+    }, 1400);
 }
