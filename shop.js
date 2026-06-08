@@ -117,7 +117,7 @@ function renderProducts(productList) {
     productList.forEach(product => {
         productsContainer.innerHTML += ` 
             <article class="product-card">
-                <a href="${product.link}"> 
+                <a href="${product.link}" class="product-link"> 
                     <img src="${product.image}" alt="${product.name}">
                 </a>
                 <div class="product-info">
@@ -154,6 +154,7 @@ function renderProducts(productList) {
 // if the product section exist, display them
 if (productsContainer) {
     renderProducts(products);
+    setupProductLinks();
 }
 
 // product cart transition animation
@@ -195,6 +196,7 @@ applyBtns.forEach(button => {
         });
 
         renderProducts(filteredProducts);
+        setupProductLinks();
 
         focusProductCards();
 
@@ -216,7 +218,7 @@ resetBtns.forEach(button => {
         });
 
         renderProducts(products);
-
+        setupProductLinks();
         focusProductCards();
 
     });
@@ -262,7 +264,28 @@ if (mobileFilterBtn && mobileFilterPage) {
 if (closeFilterBtn && mobileFilterPage) {
     closeFilterBtn.addEventListener("click", () => {
         mobileFilterPage.classList.remove("active");
-        productsSection.style.display = "grid";
-        mobileFilterBtn.style.display = "block";
+        productsSection.style.display = "";
+        mobileFilterBtn.style.display = "";
+    });
+}
+
+// alert function 
+
+function setupProductLinks() {
+    const availableProducts = [
+        "age-defying-elixir.html",
+        "age-defying-hand-cream.html"
+    ];
+
+    document.querySelectorAll(".product-link").forEach(link => {
+        const href = link.getAttribute("href");
+        if (!availableProducts.includes(href)) {
+            link.addEventListener("click", (event) => {
+                event.preventDefault();
+                alert(
+                    "This product is displayed for catalogue purposes only. Only Age Defying Elixir and Age Defying Hand Cream have fully developed product pages in this prototype."
+                );
+            });
+        }
     });
 }

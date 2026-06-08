@@ -1527,6 +1527,24 @@ button:hover {
     margin-top: 0.5rem;
 }
 
+.continue-shopping-btn {
+    display: inline-block;
+    margin-top: 1.7rem;
+    padding: 0.8rem 1.3rem;
+    border: 0.1rem solid #243B0B;
+    background-color: transparent;
+    color: #243B0B;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.08rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.continue-shopping-btn:hover {
+    background-color: #243B0B;
+    color: #FFFDF0;
+}
+
 /* summary */
 .payment-success-page .summary-total {
     margin-bottom: 2rem;
